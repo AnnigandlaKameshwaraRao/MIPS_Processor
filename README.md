@@ -67,7 +67,7 @@ Generates control signals based on opcode:
 
 ## Testing
 The processor was tested by preloading instruction and data memories with a meaningful program that:
-- Initializes an array with values 0 to 4
+- Initialises an array with values 0 to 4
 - Computes their sum using a loop
 - Stores the result in memory
 
