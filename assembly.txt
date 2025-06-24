@@ -1,0 +1,30 @@
+main:
+    # Initialize array in memory (address 0x1010)
+    addi $t0, $0, 0x100    # Base address = 0x1010
+    addi $t1, $0, 1        # array[0] = 0
+    sw   $t1, 0($t0)
+    addi $t1, $0, 2        # array[1] = 1
+    sw   $t1, 4($t0)
+    addi $t1, $0, 3        # array[2] = 2
+    sw   $t1, 8($t0)
+    addi $t1, $0, 4        # array[3] = 3
+    sw   $t1, 12($t0)
+    addi $t1, $0, 5        # array[4] = 4
+    sw   $t1, 16($t0)
+
+    # Sum loop
+    addi $t2, $0, 0        # sum = 0
+    addi $t3, $0, 0        # i = 0
+    addi $t4, $0, 5        # loop limit = 5
+
+loop:
+    slt  $t5, $t3, $t4     # i < 5?
+    beq  $t5, $0, exit     # Exit if i >= 5
+    lw   $t6, 0($t0)       # Load array[i] 
+    add  $t2, $t2, $t6     # sum += array[i]
+    addi $t0, $t0, 4       # Move to next array element
+    addi $t3, $t3, 1       # i++
+    j    loop
+
+exit:
+    sw   $t2, 0x1010($0)    # Store sum back to array[0] (address 0x1010)
