@@ -5,7 +5,7 @@ This project implements a single-cycle 32-bit MIPS processor in Verilog that sup
 
 ## Supported Instructions
 - **Memory Reference**: `lw`, `sw`
-- **Arithmetic-Logical**: `add`, `sub`, `and`, `or`, `slt`
+- **Arithmetic-Logical**: `add`,`sub`,`and`,`or`,`slt`
 - **Control Transfer**: `beq`, `j`
 - **Subroutine**: `jal`
 
